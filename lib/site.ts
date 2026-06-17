@@ -13,14 +13,14 @@ export const site = {
   url: "https://opuslt.com.br", // TODO: substituir pelo domínio real
 } as const;
 
-/* ── Contatos (placeholders) ───────────────────────────────────────── */
+/* ── Contatos ──────────────────────────────────────────────────────── */
 export const contact = {
-  // TODO: substituir telefone e número internacional do WhatsApp
-  whatsappDisplay: "(11) 9 9999-9999",
-  whatsappNumber: "5511999999999", // formato internacional, só dígitos
-  // TODO: substituir e-mail
+  whatsappDisplay: "(11) 93026-1603",
+  whatsappNumber: "5511930261603", // formato internacional, só dígitos
+  contactName: "Daniel Schmidt", // responsável pelo atendimento
+  // TODO: substituir e-mail (ainda placeholder — não informado)
   email: "contato@opuslt.com.br",
-  // TODO: substituir localização
+  // TODO: substituir localização (ainda placeholder — não informada)
   location: "São Paulo — SP",
 } as const;
 
@@ -36,7 +36,9 @@ export function whatsappLink(message?: string): string {
    caminhos locais, ex.: "/images/hero.jpg".
    ───────────────────────────────────────────────────────────────────── */
 export const images = {
-  hero: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2000&q=80",
+  // Disjuntor industrial em quadro elétrico — foto nítida (foco total), vibe de engenharia elétrica.
+  // w=3840 (origem 4000x3000) + q=85 para o hero full-bleed ficar nítido em telas grandes/retina.
+  hero: "https://images.unsplash.com/photo-1566417110090-6b15a06ec800?auto=format&fit=crop&w=3840&q=85",
   about:
     "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1200&q=80",
   sectors: {

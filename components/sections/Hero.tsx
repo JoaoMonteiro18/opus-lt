@@ -46,9 +46,10 @@ export function Hero() {
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <Image
           src={images.hero} // TODO: substituir pela foto real da obra (hero)
-          alt="Instalação elétrica industrial em ambiente profissional"
+          alt="Disjuntor industrial em quadro elétrico"
           fill
           priority
+          quality={90}
           sizes="100vw"
           className={`object-cover object-center ${reduceMotion ? "" : "animate-ken-burns"}`}
         />

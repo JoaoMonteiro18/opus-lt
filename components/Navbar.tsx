@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "./ui/Button";
@@ -20,6 +21,12 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Só a home tem hero escuro atrás da navbar transparente.
+  const isHome = pathname === "/";
+  // "solid" = fundo claro da navbar → usa texto/logo escuros.
+  const solid = scrolled || open || !isHome;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -36,17 +43,22 @@ export function Navbar() {
     };
   }, [open]);
 
+  // Fecha o menu mobile ao trocar de página.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-smooth",
-        scrolled || open
+        solid
           ? "border-b border-neutralbg-border bg-neutralbg-white/90 backdrop-blur-md shadow-soft"
           : "border-b border-transparent bg-transparent",
       )}
     >
       <nav className="container-site flex h-[4.5rem] items-center justify-between">
-        <Logo />
+        <Logo tone={solid ? "dark" : "light"} />
 
         {/* Links — desktop */}
         <ul className="hidden items-center gap-8 lg:flex">
@@ -54,7 +66,12 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="group relative text-sm font-medium text-charcoal-600 transition-colors duration-300 hover:text-charcoal-900"
+                className={cn(
+                  "group relative text-sm font-medium transition-colors duration-300",
+                  solid
+                    ? "text-charcoal-600 hover:text-charcoal-900"
+                    : "text-white/80 hover:text-white",
+                )}
               >
                 {link.label}
                 {/* Underline animado em cobre */}
@@ -74,7 +91,10 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-charcoal-800 lg:hidden"
+          className={cn(
+            "inline-flex items-center justify-center rounded-md p-2 transition-colors lg:hidden",
+            solid ? "text-charcoal-800" : "text-white",
+          )}
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
         >
@@ -102,7 +122,7 @@ export function Navbar() {
             </li>
           ))}
           <li className="px-3 pt-3">
-            <Button href="/contato" size="md" className="w-full" >
+            <Button href="/contato" size="md" className="w-full">
               Solicitar orçamento
             </Button>
           </li>

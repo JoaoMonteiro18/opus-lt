@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Check } from "lucide-react";
+import { Check, BadgeCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { Reveal } from "../ui/Reveal";
 import { aboutChecklist } from "@/lib/content";
@@ -65,12 +65,19 @@ export function About() {
               className="object-cover"
             />
           </div>
-          {/* Selo "+5 anos" — ajustável */}
-          <div className="absolute -bottom-6 -left-6 rounded-2xl border border-neutralbg-border bg-neutralbg-white p-5 shadow-soft">
-            <p className="font-display text-3xl font-bold text-copper-500">+5</p>
-            <p className="mt-0.5 text-sm font-medium text-charcoal-600">
-              anos de atuação
-            </p>
+          {/* Selo de credibilidade — ajustável */}
+          <div className="absolute -bottom-6 -left-6 flex items-center gap-3 rounded-2xl border border-neutralbg-border bg-neutralbg-white p-5 shadow-soft">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-copper-50 text-copper-600">
+              <BadgeCheck size={26} strokeWidth={1.7} />
+            </span>
+            <div>
+              <p className="font-display text-base font-bold leading-tight text-charcoal-800">
+                Equipe certificada
+              </p>
+              <p className="mt-0.5 text-sm font-medium text-charcoal-500">
+                Normas NBR 5410 &amp; NR-10
+              </p>
+            </div>
           </div>
           {/* Anel decorativo metálico */}
           <div

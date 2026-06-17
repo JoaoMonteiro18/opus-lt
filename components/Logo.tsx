@@ -2,15 +2,14 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 /* ─────────────────────────────────────────────────────────────────────
-   LOGO — componente isolado para troca fácil.
+   LOGO — medalhão oficial (SVG) + wordmark "OPUS LT ENGENHARIA".
 
-   ▸ PLACEHOLDER ATUAL: anel decorativo (SVG) + wordmark "OPUS LT".
-   ▸ PARA USAR A LOGO REAL:
-       1. Salve o arquivo em /public/logo.png
-       2. Descomente o bloco <Image> abaixo e remova o placeholder SVG.
+   ▸ O símbolo (a "bolinha") fica em /public/logo-mark.svg.
+     Para trocar o símbolo, basta substituir esse arquivo.
+   ▸ O texto é renderizado como tipografia (fonte Sora) para nitidez e
+     leveza. Se quiser a fonte exata da logo oficial, é só informar o
+     nome da fonte que ajustamos aqui.
    ───────────────────────────────────────────────────────────────────── */
-
-// import Image from "next/image";
 
 type LogoProps = {
   /** "dark" = para fundos claros (texto grafite); "light" = fundos escuros. */
@@ -26,35 +25,31 @@ function Mark({ tone = "dark" }: { tone?: "dark" | "light" }) {
 
   return (
     <span className="flex items-center gap-2.5">
-      {/* Anel decorativo metálico (placeholder que remete à logo) */}
-      <svg
-        width="36"
-        height="36"
-        viewBox="0 0 36 36"
-        fill="none"
-        aria-hidden="true"
-        className="shrink-0"
-      >
-        <defs>
-          <linearGradient id="copperRing" x1="0" y1="0" x2="36" y2="36">
-            <stop offset="0%" stopColor="#D2A48F" />
-            <stop offset="100%" stopColor="#A56A52" />
-          </linearGradient>
-        </defs>
-        <circle cx="18" cy="18" r="15.5" stroke="url(#copperRing)" strokeWidth="2.5" />
-        <circle cx="18" cy="18" r="6.5" stroke="url(#copperRing)" strokeWidth="2" opacity="0.7" />
-      </svg>
-
-      {/*
-        // LOGO REAL — descomente após adicionar /public/logo.png:
-        <Image src="/logo.png" alt="Opus LT Engenharia" width={140} height={36} priority />
-      */}
+      {/* Medalhão oficial da marca */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/logo-mark.svg"
+        alt="Opus LT Engenharia"
+        width={44}
+        height={44}
+        className="h-10 w-auto shrink-0"
+      />
 
       <span className="flex flex-col leading-none">
-        <span className={cn("font-display text-lg font-bold tracking-tight", textColor)}>
+        <span
+          className={cn(
+            "font-display text-lg font-bold tracking-tight",
+            textColor,
+          )}
+        >
           OPUS LT
         </span>
-        <span className={cn("text-[0.6rem] font-medium uppercase tracking-[0.28em]", subColor)}>
+        <span
+          className={cn(
+            "text-[0.62rem] font-semibold uppercase tracking-[0.26em]",
+            subColor,
+          )}
+        >
           Engenharia
         </span>
       </span>

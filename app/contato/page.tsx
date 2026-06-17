@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Phone, Clock } from "lucide-react";
+import { Mail, MapPin, Phone, Clock, type LucideIcon } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { Reveal } from "@/components/ui/Reveal";
 import { contact, whatsappLink } from "@/lib/site";
@@ -10,11 +10,20 @@ export const metadata: Metadata = {
     "Fale com a Opus LT Engenharia. Solicite um orçamento para instalações elétricas e infraestrutura de dados.",
 };
 
-const infoItems = [
+type InfoItem = {
+  icon: LucideIcon;
+  label: string;
+  value: string;
+  href?: string;
+  note?: string;
+};
+
+const infoItems: InfoItem[] = [
   {
     icon: Phone,
     label: "WhatsApp / Telefone",
     value: contact.whatsappDisplay,
+    note: `Falar com ${contact.contactName}`,
     href: whatsappLink("Olá! Gostaria de mais informações."),
   },
   {
@@ -31,7 +40,7 @@ const infoItems = [
   {
     icon: Clock,
     label: "Atendimento",
-    value: "Seg. a Sex., 8h às 18h",
+    value: "Seg. a Sex. - 8h às 18h",
   },
 ];
 
@@ -71,6 +80,9 @@ export default function ContatoPage() {
                     <p className="mt-1 font-medium text-charcoal-800">
                       {item.value}
                     </p>
+                    {item.note && (
+                      <p className="mt-0.5 text-sm text-charcoal-500">{item.note}</p>
+                    )}
                   </div>
                 </div>
               );
