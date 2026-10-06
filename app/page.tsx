@@ -1,19 +1,33 @@
-import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Services } from "@/components/sections/Services";
-import { Differentials } from "@/components/sections/Differentials";
-import { Sectors } from "@/components/sections/Sectors";
-import { CTA } from "@/components/sections/CTA";
+import Preloader from "@/components/Preloader";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Pillars from "@/components/Pillars";
+import Services from "@/components/Services";
+import Works from "@/components/Works";
+import Process from "@/components/Process";
+import Credibility from "@/components/Credibility";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
-export default function HomePage() {
+export default function Home() {
   return (
     <>
-      <Hero />
-      <About />
-      <Services />
-      <Differentials />
-      <Sectors />
-      <CTA />
+      <Preloader />
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Pillars />
+        <Services />
+        <Works />
+        <Process />
+        <Credibility />
+        <Contact />
+      </main>
+      <Footer />
+      <WhatsAppButton />
     </>
   );
 }

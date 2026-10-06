@@ -35,3 +35,9 @@ next-env.d.ts
 
 # claude code (configurações locais da máquina)
 .claude/settings.local.json
+
+# projeto X.INC (repositório próprio, publicado separadamente)
+/x-inc/
+
+# projeto novo da Opus (repositório próprio, publicado separadamente)
+/opus/

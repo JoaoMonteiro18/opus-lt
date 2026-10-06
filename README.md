@@ -1,122 +1,75 @@
-# Opus LT Engenharia — Site Institucional
+# Opus — Site Institucional
 
-Site institucional da **Opus LT Engenharia**, especializada em instalações
-elétricas e infraestrutura de dados/cabeamento estruturado.
+Site institucional da Opus Engenharia: construtora, gerenciadora de obras e engenharia de instalações elétricas e de dados. Dark theme, animações de scroll de alto nível e um mega-menu de serviços cobrindo as duas frentes da empresa.
 
-Construído com **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**,
-**Framer Motion** e **lucide-react**. Pronto para deploy na **Vercel**.
+Construído sobre a base do projeto X.INC (mesma arquitetura e vocabulário de animação), com identidade, conteúdo e estrutura próprios.
 
----
+## Stack
 
-## 🚀 Como rodar
+- **Next.js 15** (App Router, 100% estático)
+- **React 19 + TypeScript**
+- **Tailwind CSS v4** (tokens via `@theme` no CSS, sem `tailwind.config`)
+- **GSAP + ScrollTrigger** — parallax, timeline horizontal pinada
+- **Lenis** — smooth scroll
+- **Framer Motion** — micro animações, máscaras de texto, mega-menu
 
-Pré-requisitos: **Node.js 18.18+** (recomendado 20+) e npm.
+## Rodando
 
 ```bash
-# 1. Instalar dependências
 npm install
-
-# 2. Ambiente de desenvolvimento (http://localhost:3000)
-npm run dev
-
-# 3. Build de produção
-npm run build
-npm run start
+npm run dev      # http://localhost:3020
+npm run build    # build de produção
+npm start        # serve o build
 ```
 
-### Deploy na Vercel
-1. Suba o repositório para o GitHub.
-2. Em [vercel.com](https://vercel.com), importe o projeto — a Vercel detecta o
-   Next.js automaticamente. Sem configuração extra.
+> Não rode `npm run build` com o `npm run dev` ativo na mesma pasta: o build sobrescreve o `.next` do servidor de desenvolvimento e ele passa a dar erro. Pare o dev antes, ou apague `.next` depois.
 
----
+## Identidade visual (em transição)
 
-## 📁 Estrutura de pastas
+A marca está sendo redesenhada. Tudo foi tokenizado para a troca ser barata:
+
+**Paleta** — `app/globals.css`, bloco `@theme`. O verde da marca é `--color-accent` (#374335). Como ele é escuro demais para texto sobre o fundo quase-preto (contraste 1,9:1), vale só para preenchimentos sólidos — botão primário, ícone do WhatsApp. Textos finos, filetes, bordas e hover usam `--color-accent-soft` (#93AE8F), o mesmo verde clareado na mesma matiz (111°), com 8:1 de contraste. Para trocar o verde, altere os dois mantendo a matiz. Nenhum componente tem cor fixa no código.
+
+**Logo** — `components/Logo.tsx`. O wordmark é um SVG inline que herda a cor via `currentColor`, então ele se adapta sozinho ao acento e ao fundo:
+
+- `<Wordmark />` — só a marca, usada também como marca-d'água gigante no hero e no rodapé.
+- `<Logo />` — o lockup "opus | ENGENHARIA" do cabeçalho.
+
+O path vem de `components/logo-path.ts` (gerado a partir do SVG original). Para trocar a logo, substitua o `d` desse arquivo e o `viewBox`, mais `public/logo.svg` e `app/icon.svg` (favicon).
+
+**Nome** — o wordmark novo traz só "opus". Os textos do site ainda dizem "Opus LT" (nome atual da empresa). Se a marca passar a ser apenas "Opus", é um find-replace em `lib/site.ts`, `lib/content.ts` e nos componentes.
+
+## Estrutura
 
 ```
-.
-├── app/                      # Rotas (App Router)
-│   ├── layout.tsx            # Layout raiz: fonts, navbar, footer, metadata/SEO
-│   ├── template.tsx          # Transição (fade) entre páginas
-│   ├── page.tsx              # Home
-│   ├── globals.css           # Estilos base + tokens + prefers-reduced-motion
-│   ├── not-found.tsx         # Página 404
-│   ├── sitemap.ts / robots.ts# SEO
-│   ├── portfolio/
-│   │   ├── page.tsx          # Lista de categorias
-│   │   ├── residencial/      # Tela "em desenvolvimento"
-│   │   ├── industrial/       # Tela "em desenvolvimento"
-│   │   └── comercial/        # Tela "em desenvolvimento"
-│   └── contato/page.tsx      # Página de contato (formulário + dados)
-│
-├── components/
-│   ├── Logo.tsx              # ⭐ Logo isolada (trocar por /public/logo.png)
-│   ├── Navbar.tsx            # Navbar fixa, scroll-state, menu mobile
-│   ├── Footer.tsx
-│   ├── WhatsAppButton.tsx    # Botão flutuante (todas as páginas)
-│   ├── ContactForm.tsx       # Formulário (abre WhatsApp preenchido)
-│   ├── PortfolioCard.tsx
-│   ├── UnderConstruction.tsx # Tela "em desenvolvimento" reutilizável
-│   ├── sections/             # Seções da home (Hero, About, Services, etc.)
-│   └── ui/                   # Primitivos (Button, Reveal, CountUp, ...)
-│
-└── lib/
-    ├── site.ts               # ⭐ Contatos, URLs e imagens (placeholders)
-    ├── content.ts            # ⭐ Textos: serviços, diferenciais, setores
-    ├── motion.ts             # Variantes de animação (Framer Motion)
-    └── utils.ts
+app/
+  layout.tsx        # fontes, SEO, JSON-LD, smooth scroll, cursor, ruído
+  page.tsx          # composição das seções
+  globals.css       # tokens da paleta, utilitários, noise, blueprint grid
+  icon.svg          # favicon
+lib/
+  site.ts           # nome, contatos, WhatsApp, imagens
+  content.ts        # serviços, pilares, números, processo, setores
+components/
+  Navbar.tsx        # navbar inteligente + mega-menu de serviços
+  Hero.tsx  About.tsx  Pillars.tsx  Services.tsx
+  Works.tsx  Process.tsx  Credibility.tsx  Contact.tsx  Footer.tsx
+  Logo.tsx  logo-path.ts  Preloader.tsx  Cursor.tsx
+  SmoothScroll.tsx  SectionHeading.tsx  WhatsAppButton.tsx
+  motion/primitives.tsx  # FadeIn, MaskLines, Magnetic, TiltCard
 ```
 
----
+## Conteúdo
 
-## ✅ Checklist — o que você precisa trocar
+Os serviços ficam em `lib/content.ts`, divididos em dois grupos que alimentam ao mesmo tempo o mega-menu, a seção de serviços e o rodapé — adicionar ou remover um serviço em um lugar atualiza os três.
 
-Os pontos editáveis estão marcados no código com `// TODO: substituir`.
+| Construção & Obras | Instalações & Tecnologia |
+| --- | --- |
+| Construção Civil | Instalações Elétricas |
+| Gerenciamento de Obras | Infraestrutura de Dados |
+| Retrofit e Reformas Corporativas | Redes Wi-Fi e CFTV |
+| Projetos e Consultoria | Manutenção Preventiva |
 
-- [ ] **Logo** — adicione `public/logo.png` e descomente o bloco `<Image>` em
-      [`components/Logo.tsx`](components/Logo.tsx). O placeholder atual é um anel
-      SVG + wordmark "OPUS LT".
-- [ ] **Contatos** — em [`lib/site.ts`](lib/site.ts):
-  - `whatsappNumber` (formato internacional, ex.: `5511999999999`)
-  - `whatsappDisplay`, `email`, `location`
-  - `url` (domínio real, usado em SEO/sitemap)
-- [ ] **Imagens** — em [`lib/site.ts`](lib/site.ts), troque as URLs do Unsplash
-      pelas fotos reais das obras (sugestão: salve em `public/images/` e use
-      caminhos locais, ex.: `/images/hero.jpg`).
-- [ ] **Textos** — ajuste serviços, diferenciais e setores em
-      [`lib/content.ts`](lib/content.ts) (ex.: o selo "+5 anos" em
-      [`components/sections/About.tsx`](components/sections/About.tsx)).
-- [ ] **Formulário** — hoje o envio abre o WhatsApp com os dados preenchidos.
-      Para receber por e-mail, plugue um endpoint (Resend/Formspree) em
-      [`components/ContactForm.tsx`](components/ContactForm.tsx) (há comentário
-      indicando onde). Há também a alternativa `mailto:`.
-- [ ] **Vídeo no hero (opcional)** — em
-      [`components/sections/Hero.tsx`](components/sections/Hero.tsx) há um bloco
-      `<video>` comentado pronto para uso (`public/videos/hero.mp4`).
+**Reais:** WhatsApp (11) 93026-1603 (Daniel Schmidt), atendimento em São Paulo, e todo o escopo técnico das instalações elétricas e de dados (herdado do site anterior). Setores atendidos: corporativo, industrial, saúde e restaurantes.
 
----
-
-## 🎨 Identidade visual
-
-Tokens definidos em [`tailwind.config.ts`](tailwind.config.ts):
-
-| Token        | Uso                                             |
-|--------------|-------------------------------------------------|
-| `charcoal.*` | Grafite/gunmetal — texto e seções escuras       |
-| `copper.*`   | Cobre/rosé gold — **acento** (use com restrição)|
-| `neutralbg.*`| Fundos branco / off-white quente / bordas       |
-
-Tipografia: **Sora** (títulos) + **Inter** (corpo), via `next/font`.
-
----
-
-## ♿ Acessibilidade & performance
-
-- Respeita `prefers-reduced-motion` (animações reduzidas/desligadas).
-- HTML semântico, `alt` em imagens, `aria-label` em botões de ícone, foco visível.
-- Imagens via `next/image` (lazy, exceto o hero), fonts via `next/font`.
-- Responsivo (mobile-first), de 360px a desktop.
-
----
-
-© 2025 Opus LT Engenharia.
+**Placeholders a substituir:** e-mail `contato@opuslt.com.br`, domínio `opuslt.com.br`, os dados da seção Credibilidade (`HIGHLIGHTS` em `components/Credibility.tsx`) e as imagens — todas do Unsplash via `next/image`, centralizadas em `images` no `lib/site.ts`. O ideal é trocá-las por fotos reais de obras entregues.

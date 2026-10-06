@@ -1,73 +1,45 @@
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { OPUS_WORDMARK_PATH, OPUS_WORDMARK_VIEWBOX } from "@/components/logo-path";
 
-/* ─────────────────────────────────────────────────────────────────────
-   LOGO — medalhão oficial (SVG) + wordmark "OPUS LT ENGENHARIA".
-
-   ▸ O símbolo (a "bolinha") fica em /public/logo-mark.svg.
-     Para trocar o símbolo, basta substituir esse arquivo.
-   ▸ O texto é renderizado como tipografia (fonte Sora) para nitidez e
-     leveza. Se quiser a fonte exata da logo oficial, é só informar o
-     nome da fonte que ajustamos aqui.
-   ───────────────────────────────────────────────────────────────────── */
-
-type LogoProps = {
-  /** "dark" = para fundos claros (texto grafite); "light" = fundos escuros. */
-  tone?: "dark" | "light";
+type WordmarkProps = {
   className?: string;
-  /** Renderiza sem o <Link> (ex.: dentro do footer com link próprio). */
-  asPlainMark?: boolean;
+  title?: string;
 };
 
-function Mark({ tone = "dark" }: { tone?: "dark" | "light" }) {
-  const textColor = tone === "light" ? "text-white" : "text-charcoal-800";
-  const subColor = tone === "light" ? "text-white/60" : "text-charcoal-500";
-
+/** Wordmark "opus" — herda a cor via currentColor. */
+export function Wordmark({ className = "h-7 w-auto", title }: WordmarkProps) {
   return (
-    <span className="flex items-center gap-2.5">
-      {/* Medalhão oficial da marca */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/logo-mark.svg"
-        alt="Opus LT Engenharia"
-        width={44}
-        height={44}
-        className="h-10 w-auto shrink-0"
+    <svg
+      viewBox={OPUS_WORDMARK_VIEWBOX}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      role={title ? "img" : undefined}
+      aria-label={title}
+      aria-hidden={title ? undefined : true}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d={OPUS_WORDMARK_PATH}
+        fill="currentColor"
       />
-
-      <span className="flex flex-col leading-none">
-        <span
-          className={cn(
-            "font-display text-lg font-bold tracking-tight",
-            textColor,
-          )}
-        >
-          OPUS LT
-        </span>
-        <span
-          className={cn(
-            "text-[0.62rem] font-semibold uppercase tracking-[0.26em]",
-            subColor,
-          )}
-        >
-          Engenharia
-        </span>
-      </span>
-    </span>
+    </svg>
   );
 }
 
-export function Logo({ tone = "dark", className, asPlainMark = false }: LogoProps) {
-  if (asPlainMark) {
-    return (
-      <span className={className}>
-        <Mark tone={tone} />
-      </span>
-    );
-  }
+type LogoProps = {
+  className?: string;
+  markClassName?: string;
+};
+
+export function Logo({ className = "", markClassName = "h-7 w-auto" }: LogoProps) {
   return (
-    <Link href="/" className={cn("inline-flex", className)} aria-label="Opus LT Engenharia — Início">
-      <Mark tone={tone} />
-    </Link>
+    <span className={`flex items-end gap-3 text-bone ${className}`}>
+      <Wordmark className={markClassName} />
+      <span className="mb-[0.15em] hidden border-l border-bone/20 pl-3 text-[0.58rem] font-semibold uppercase tracking-[0.3em] text-accent-soft sm:block">
+        Engenharia
+      </span>
+      <span className="sr-only">Opus Engenharia</span>
+    </span>
   );
 }

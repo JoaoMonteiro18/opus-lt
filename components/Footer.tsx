@@ -1,95 +1,114 @@
-import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
-import { Logo } from "./Logo";
-import { contact, whatsappLink } from "@/lib/site";
+"use client";
 
-const navColumns = [
-  {
-    title: "Navegação",
-    links: [
-      { label: "Sobre", href: "/#sobre" },
-      { label: "Serviços", href: "/#servicos" },
-      { label: "Diferenciais", href: "/#diferenciais" },
-      { label: "Setores", href: "/#setores" },
-    ],
-  },
-  {
-    title: "Empresa",
-    links: [
-      { label: "Portfólio", href: "/portfolio" },
-      { label: "Contato", href: "/contato" },
-      { label: "Solicitar orçamento", href: "/contato" },
-    ],
-  },
+import { Logo, Wordmark } from "@/components/Logo";
+import { FadeIn } from "@/components/motion/primitives";
+import { contact, site, whatsappLink } from "@/lib/site";
+import { allServices } from "@/lib/content";
+
+const NAV = [
+  { label: "Sobre", href: "#sobre" },
+  { label: "Serviços", href: "#servicos" },
+  { label: "Obras", href: "#obras" },
+  { label: "Processo", href: "#processo" },
+  { label: "Credibilidade", href: "#credibilidade" },
+  { label: "Contato", href: "#contato" },
 ];
 
-export function Footer() {
-  return (
-    <footer className="bg-charcoal-900 text-white">
-      <div className="container-site grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
-        {/* Marca + frase */}
-        <div className="lg:col-span-2">
-          <Logo tone="light" />
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/60">
-            Energia e dados que movem o seu negócio. Instalações elétricas e
-            infraestrutura de dados com segurança, conformidade e suporte
-            contínuo.
-          </p>
+export default function Footer() {
+  const goTo = (href: string) => {
+    const target = document.querySelector(href);
+    if (target && window.__lenis) {
+      window.__lenis.scrollTo(target as HTMLElement, { duration: 1.6 });
+    } else {
+      target?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
-          <ul className="mt-6 space-y-3 text-sm text-white/70">
-            <li>
+  return (
+    <footer className="relative overflow-hidden border-t border-bone/10">
+      <Wordmark className="pointer-events-none absolute -bottom-14 right-8 w-[34rem] max-w-[62%] text-bone opacity-[0.04]" />
+
+      <div className="container-x py-16 md:py-24">
+        <FadeIn y={24}>
+          <div className="flex flex-col justify-between gap-12 lg:flex-row lg:items-start">
+            <div className="max-w-sm">
+              <Logo markClassName="h-11 w-auto" />
+              <p className="mt-6 text-sm leading-relaxed text-smoke">
+                {site.description}
+              </p>
               <a
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 transition-colors hover:text-copper-400"
+                className="mt-6 inline-flex items-center gap-2 text-sm text-accent-soft transition-colors hover:text-accent-soft"
               >
-                <Phone size={16} className="text-copper-500" />
                 {contact.whatsappDisplay}
+                <svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5 -rotate-45">
+                  <path d="M4 12H20M20 12L13 5M20 12L13 19" stroke="currentColor" strokeWidth="1.6" />
+                </svg>
               </a>
-            </li>
-            <li>
-              <a
-                href={`mailto:${contact.email}`}
-                className="inline-flex items-center gap-2.5 transition-colors hover:text-copper-400"
-              >
-                <Mail size={16} className="text-copper-500" />
-                {contact.email}
-              </a>
-            </li>
-            <li className="inline-flex items-center gap-2.5">
-              <MapPin size={16} className="text-copper-500" />
-              {contact.location}
-            </li>
-          </ul>
-        </div>
+            </div>
 
-        {/* Colunas de links */}
-        {navColumns.map((col) => (
-          <div key={col.title}>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-white/80">
-              {col.title}
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {col.links.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/60 transition-colors hover:text-copper-400"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="flex flex-wrap gap-12 lg:gap-20">
+              <nav aria-label="Rodapé">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-bone/40">
+                  Navegação
+                </p>
+                <ul className="mt-5 space-y-3">
+                  {NAV.map((link) => (
+                    <li key={link.href}>
+                      <button
+                        onClick={() => goTo(link.href)}
+                        className="text-sm text-bone/70 transition-colors duration-300 hover:text-accent-soft"
+                      >
+                        {link.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-bone/40">
+                  Serviços
+                </p>
+                <ul className="mt-5 space-y-3">
+                  {allServices.map((service) => (
+                    <li key={service.id}>
+                      <button
+                        onClick={() => goTo(`#${service.id}`)}
+                        className="text-left text-sm text-bone/70 transition-colors duration-300 hover:text-accent-soft"
+                      >
+                        {service.title}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-bone/40">
+                  Atendimento
+                </p>
+                <p className="mt-5 max-w-[220px] text-sm leading-relaxed text-bone/70">
+                  {contact.location}
+                  <br />
+                  Obras em todo o estado
+                </p>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="mt-3 inline-block text-sm text-bone/70 transition-colors hover:text-accent-soft"
+                >
+                  {contact.email}
+                </a>
+              </div>
+            </div>
           </div>
-        ))}
-      </div>
+        </FadeIn>
 
-      <div className="border-t border-white/10">
-        <div className="container-site flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/50 sm:flex-row">
-          <p>© 2025 Opus LT Engenharia. Todos os direitos reservados.</p>
-          <p>Instalações elétricas · Infraestrutura de dados</p>
+        <div className="mt-16 flex flex-col gap-4 border-t border-bone/10 pt-8 text-xs text-bone/35 md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} {site.name}. Todos os direitos reservados.</p>
+          <p>Responsabilidade técnica registrada no CREA-SP</p>
         </div>
       </div>
     </footer>

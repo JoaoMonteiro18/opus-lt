@@ -1,162 +1,220 @@
-/* ═══════════════════════════════════════════════════════════════════
-   CONTEÚDO EDITORIAL — textos das seções, serviços e diferenciais.
-   Edite aqui para alterar os textos do site.
-   ═══════════════════════════════════════════════════════════════════ */
-
-import {
-  Zap,
-  Network,
-  Wifi,
-  ClipboardList,
-  Cctv,
-  Wrench,
-  type LucideIcon,
-} from "lucide-react";
-
 export type Service = {
   id: string;
-  icon: LucideIcon;
   title: string;
+  short: string;
   description: string;
   tags: string[];
 };
 
-export const services: Service[] = [
+export type ServiceGroup = {
+  id: string;
+  label: string;
+  caption: string;
+  services: Service[];
+};
+
+export const serviceGroups: ServiceGroup[] = [
   {
-    id: "instalacoes-eletricas",
-    icon: Zap,
-    title: "Instalações Elétricas",
-    description:
-      "Instalação, manutenção e modernização de sistemas elétricos em ambientes comerciais, industriais e corporativos. Projetos sob medida com laudo de conformidade.",
-    tags: [
-      "Painéis elétricos",
-      "Quadros de distribuição",
-      "SPDA/Para-raios",
-      "Manutenção preventiva",
+    id: "construcao",
+    label: "Construção & Obras",
+    caption: "Da fundação à entrega das chaves",
+    services: [
+      {
+        id: "construcao-civil",
+        title: "Construção Civil",
+        short: "Obras completas, do terreno à entrega",
+        description:
+          "Execução de obras comerciais, industriais e corporativas com equipe própria, controle tecnológico de materiais e responsabilidade técnica integral.",
+        tags: ["Obra nova", "Estrutura e alvenaria", "Acabamento", "ART/RRT"],
+      },
+      {
+        id: "gerenciamento-de-obras",
+        title: "Gerenciamento de Obras",
+        short: "Gestão de prazo, custo e qualidade",
+        description:
+          "Planejamento, fiscalização e gestão de contratos de obra. Cronograma físico-financeiro, medições e relatórios periódicos para o cliente decidir com dados.",
+        tags: ["Cronograma físico-financeiro", "Medições", "Fiscalização", "Compatibilização"],
+      },
+      {
+        id: "retrofit-reformas",
+        title: "Retrofit e Reformas Corporativas",
+        short: "Modernização sem parar a operação",
+        description:
+          "Reforma de sedes, lojas e plantas em operação, com etapas noturnas e planejamento de convivência para a atividade do cliente não parar.",
+        tags: ["Obra em operação", "Etapas noturnas", "Layout corporativo", "Fachadas"],
+      },
+      {
+        id: "projetos-consultoria",
+        title: "Projetos e Consultoria",
+        short: "Engenharia antes da primeira pá",
+        description:
+          "Projetos executivos, memoriais descritivos, laudos técnicos e acompanhamento de obra. Viabilidade e compatibilização antes de o custo virar problema.",
+        tags: ["Projeto executivo", "Laudo técnico", "PPCI", "Viabilidade"],
+      },
     ],
   },
   {
-    id: "infraestrutura-de-dados",
-    icon: Network,
-    title: "Infraestrutura de Dados",
-    description:
-      "Projetos e instalação de redes estruturadas, data centers e salas de telecomunicações com certificação e padrão internacional de qualidade.",
-    tags: [
-      "Cabeamento Cat6/Cat6A",
-      "Fibra óptica",
-      "Rack e patch panel",
-      "Certificação de rede",
+    id: "instalacoes",
+    label: "Instalações & Tecnologia",
+    caption: "A engenharia que dá vida ao prédio",
+    services: [
+      {
+        id: "instalacoes-eletricas",
+        title: "Instalações Elétricas",
+        short: "Da entrada de energia ao último ponto",
+        description:
+          "Instalação, manutenção e modernização de sistemas elétricos em ambientes comerciais, industriais e corporativos. Projeto sob medida com laudo de conformidade.",
+        tags: [
+          "Painéis elétricos",
+          "Quadros de distribuição",
+          "SPDA / Para-raios",
+          "Manutenção preventiva",
+        ],
+      },
+      {
+        id: "infraestrutura-de-dados",
+        title: "Infraestrutura de Dados",
+        short: "Redes estruturadas e data centers",
+        description:
+          "Projetos e instalação de redes estruturadas, data centers e salas de telecomunicações com certificação e padrão internacional de qualidade.",
+        tags: [
+          "Cabeamento Cat6 / Cat6A",
+          "Fibra óptica",
+          "Rack e patch panel",
+          "Certificação de rede",
+        ],
+      },
+      {
+        id: "redes-seguranca",
+        title: "Redes Wi-Fi e CFTV",
+        short: "Conectividade e segurança integradas",
+        description:
+          "Redes sem fio corporativas de alta performance, câmeras IP, controle de acesso e monitoramento remoto — tudo integrado à mesma infraestrutura.",
+        tags: ["Access points", "Site survey", "Câmeras IP", "Controle de acesso"],
+      },
+      {
+        id: "manutencao-preventiva",
+        title: "Manutenção Preventiva",
+        short: "Para a falha não virar parada",
+        description:
+          "Programas de manutenção periódica para sistemas elétricos e de TI, com termografia e análise de qualidade de energia para antecipar o problema.",
+        tags: ["Cronograma anual", "Termografia", "Qualidade de energia", "Suporte"],
+      },
     ],
-  },
-  {
-    id: "redes-wifi",
-    icon: Wifi,
-    title: "Redes Wi-Fi Corporativas",
-    description:
-      "Planejamento e instalação de redes sem fio de alta performance para ambientes corporativos. Cobertura total, segmentação e controle de acesso.",
-    tags: ["Access points", "Controller Wi-Fi", "Firewall", "Site survey"],
-  },
-  {
-    id: "projetos-consultoria",
-    icon: ClipboardList,
-    title: "Projetos e Consultoria",
-    description:
-      "Elaboração de projetos elétricos e de TI com memorial descritivo, laudos, acompanhamento técnico de obra.",
-    tags: ["Projeto elétrico", "Laudo técnico", "PPCI", "Visita técnica"],
-  },
-  {
-    id: "cftv-seguranca",
-    icon: Cctv,
-    title: "CFTV e Segurança",
-    description:
-      "Instalação de câmeras IP e analógicas, controle de acesso, alarmes e monitoramento remoto integrado à rede.",
-    tags: ["Câmeras IP", "DVR/NVR", "Controle de acesso", "Monitoramento"],
-  },
-  {
-    id: "manutencao-preventiva",
-    icon: Wrench,
-    title: "Manutenção Preventiva",
-    description:
-      "Programas de manutenção periódica para sistemas elétricos e de TI, reduzindo falhas e prevenindo paradas.",
-    tags: ["Cronograma", "Termografia", "Análise de qualidade"],
   },
 ];
 
-export type Differential = {
-  number: string;
+export const allServices: Service[] = serviceGroups.flatMap((g) => g.services);
+
+export type Pillar = {
   title: string;
-  description: string;
+  text: string;
 };
 
-export const differentials: Differential[] = [
+export const pillars: Pillar[] = [
+  {
+    title: "Engenharia integrada",
+    text: "Obra civil e instalações elétricas e de dados sob a mesma responsabilidade técnica. Uma interlocutora só, do projeto à energização.",
+  },
+  {
+    title: "Conformidade sem atalho",
+    text: "ABNT NBR 5410, NBR 14565, NR-10 e NR-35. Material certificado pelo INMETRO e documentação técnica completa ao final de cada entrega.",
+  },
+  {
+    title: "Prazo que se cumpre",
+    text: "Cronograma físico-financeiro realista desde a proposta, com medição por etapa e relatório de avanço — sem surpresa no meio da obra.",
+  },
+];
+
+export type ProcessStep = {
+  number: string;
+  title: string;
+  text: string;
+};
+
+export const processSteps: ProcessStep[] = [
   {
     number: "01",
-    title: "Segurança em primeiro lugar",
-    description:
-      "Equipe com NR-10 e NR-35, EPI completo e protocolos rigorosos.",
+    title: "Diagnóstico",
+    text: "Visita técnica, levantamento das condições reais do local e entendimento da operação do cliente. Nada é orçado sem ser visto.",
   },
   {
     number: "02",
-    title: "Conformidade com normas técnicas",
-    description:
-      "Projetos dentro de ABNT NBR 5410, NBR 14565 e Anatel.",
+    title: "Projeto",
+    text: "Projeto executivo, memorial descritivo e compatibilização entre civil, elétrica e dados.",
   },
   {
     number: "03",
-    title: "Materiais certificados pelo INMETRO",
-    description:
-      "Equipamentos de qualidade comprovada e rastreável.",
+    title: "Planejamento",
+    text: "Cronograma físico-financeiro, plano de compras e definição das etapas que podem rodar sem interromper a atividade do cliente.",
   },
   {
     number: "04",
-    title: "Documentação e laudo técnico",
-    description:
-      "Dossiê completo: memorial, certificado de conformidade, diagramas.",
+    title: "Execução",
+    text: "Obra com equipe própria, controle tecnológico de materiais, segurança conforme NR-10 e NR-35 e medição por etapa concluída.",
   },
   {
     number: "05",
-    title: "Atendimento ágil e cronograma claro",
-    description:
-      "Cronograma realista desde a proposta, atualização por etapa.",
+    title: "Comissionamento",
+    text: "Testes, certificação de rede, termografia dos quadros e ajuste fino de cada sistema antes de liberar a operação.",
   },
   {
     number: "06",
-    title: "Suporte pós-instalação",
-    description:
-      "Suporte remoto e visitas presenciais após a entrega.",
+    title: "Entrega e suporte",
+    text: "Documentação técnica completa, com a planta atualizada do que foi executado, treinamento da equipe do cliente e suporte pós-obra com visitas programadas.",
   },
 ];
 
 export type Sector = {
-  id: string;
+  id: "corporativo" | "industrial" | "saude" | "restaurantes";
   name: string;
   caption: string;
+  description: string;
 };
 
 export const sectors: Sector[] = [
-  { id: "corporativo", name: "Corporativo", caption: "Escritórios e sedes" },
-  { id: "industrial", name: "Industrial", caption: "Galpões e fábricas" },
-  { id: "saude", name: "Saúde", caption: "Hospitais e clínicas" },
-  { id: "varejo", name: "Varejo", caption: "Lojas e shoppings" },
+  {
+    id: "corporativo",
+    name: "Corporativo",
+    caption: "Escritórios e sedes",
+    description: "Lajes corporativas, retrofit de sedes e salas técnicas em prédios em operação.",
+  },
+  {
+    id: "industrial",
+    name: "Industrial",
+    caption: "Galpões e plantas",
+    description: "Galpões, subestações, infraestrutura elétrica de média tensão e expansões fabris.",
+  },
+  {
+    id: "saude",
+    name: "Saúde",
+    caption: "Hospitais e clínicas",
+    description: "Ambientes com exigência normativa severa, redundância elétrica e obra em área crítica.",
+  },
+  {
+    id: "restaurantes",
+    name: "Restaurantes",
+    caption: "Casas de gastronomia",
+    description:
+      "Cozinhas, exaustão, carga elétrica e acabamento de salão — com etapas noturnas para a casa não fechar.",
+  },
+];
+
+/** Faixa contínua da seção Credibilidade. Frases curtas, não nomes de fabricante. */
+export const marqueeItems: string[] = [
+  "Equipe própria",
+  "ART emitida por obra",
+  "NR-10 e NR-35 em dia",
+  "Material certificado INMETRO",
+  "Obra em operação, sem parar a casa",
+  "Medição por etapa concluída",
+  "Planta atualizada e laudo técnico",
+  "Suporte pós-obra",
 ];
 
 export const aboutChecklist: string[] = [
-  "Equipe com formação técnica e certificações atualizadas",
-  "Projetos dimensionados conforme normas NBR 5410 e NR-10",
+  "Obra civil e instalações sob uma única responsabilidade técnica",
+  "Equipe própria — sem terceirizar o que define a qualidade da entrega",
   "Atendimento a empresas de pequeno, médio e grande porte",
-  "Uso de materiais certificados pelo INMETRO",
-  "Documentação completa e laudos técnicos ao final de cada serviço",
-];
-
-export type PortfolioCategory = {
-  slug: "residencial" | "industrial" | "comercial";
-  name: string;
-  /** Nome usado no contexto da tela "em desenvolvimento" */
-  contextName: string;
-};
-
-export const portfolioCategories: PortfolioCategory[] = [
-  { slug: "residencial", name: "Residencial", contextName: "Projetos residenciais" },
-  { slug: "industrial", name: "Industrial", contextName: "Projetos industriais" },
-  { slug: "comercial", name: "Comercial", contextName: "Projetos comerciais" },
+  "Documentação completa e laudo técnico ao final de cada serviço",
 ];
