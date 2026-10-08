@@ -9,7 +9,7 @@ Construído sobre a base do projeto X.INC (mesma arquitetura e vocabulário de a
 - **Next.js 15** (App Router, 100% estático)
 - **React 19 + TypeScript**
 - **Tailwind CSS v4** (tokens via `@theme` no CSS, sem `tailwind.config`)
-- **GSAP + ScrollTrigger** — parallax, timeline horizontal pinada
+- **GSAP + ScrollTrigger** — parallax do hero e das imagens
 - **Lenis** — smooth scroll
 - **Framer Motion** — micro animações, máscaras de texto, mega-menu
 
@@ -53,7 +53,7 @@ lib/
 components/
   Navbar.tsx        # navbar inteligente + mega-menu de serviços
   Hero.tsx  About.tsx  Works.tsx  Pillars.tsx  Services.tsx
-  Projects.tsx  Process.tsx  Marquee.tsx  Contact.tsx  Footer.tsx
+  Projects.tsx  Marquee.tsx  Contact.tsx  Footer.tsx
   Logo.tsx  logo-path.ts  Preloader.tsx  Cursor.tsx
   SmoothScroll.tsx  SectionHeading.tsx  WhatsAppButton.tsx
   motion/primitives.tsx  # FadeIn, MaskLines, Magnetic, TiltCard

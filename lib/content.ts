@@ -91,7 +91,7 @@ export const allServices: Service[] = serviceGroups.flatMap((g) => g.services);
 export type ProjectStatus = "Entregue" | "Em obra" | "Em projeto";
 
 export type Project = {
-  id: "verticeJardins" | "aureaFariaLima" | "origemPinheiros" | "miranteIbirapuera";
+  id: "verticeJardins" | "aureaFariaLima" | "origemPinheiros" | "casaOliva";
   name: string;
   segment: string;
   location: string;
@@ -127,11 +127,11 @@ export const projects: Project[] = [
     wide: false,
   },
   {
-    id: "miranteIbirapuera",
-    name: "Mirante Ibirapuera",
-    segment: "Residencial",
+    id: "casaOliva",
+    name: "Casa Oliva",
+    segment: "Restaurante",
     location: "Vila Nova Conceição · São Paulo",
-    status: "Em projeto",
+    status: "Em obra",
     wide: true,
   },
 ];
@@ -159,44 +159,37 @@ export const pillars: Pillar[] = [
 export type ProcessStep = {
   number: string;
   title: string;
-  text: string;
 };
 
 export const processSteps: ProcessStep[] = [
   {
     number: "01",
     title: "Diagnóstico",
-    text: "Visita técnica, levantamento das condições reais do local e entendimento da operação do cliente. Nada é orçado sem ser visto.",
   },
   {
     number: "02",
     title: "Projeto",
-    text: "Projeto executivo, memorial descritivo e compatibilização entre civil, elétrica e dados.",
   },
   {
     number: "03",
     title: "Planejamento",
-    text: "Cronograma físico-financeiro, plano de compras e definição das etapas que podem rodar sem interromper a atividade do cliente.",
   },
   {
     number: "04",
     title: "Execução",
-    text: "Obra com equipe própria, controle tecnológico de materiais, segurança conforme NR-10 e NR-35 e medição por etapa concluída.",
   },
   {
     number: "05",
     title: "Comissionamento",
-    text: "Testes, certificação de rede, termografia dos quadros e ajuste fino de cada sistema antes de liberar a operação.",
   },
   {
     number: "06",
     title: "Entrega e suporte",
-    text: "Documentação técnica completa, com a planta atualizada do que foi executado, treinamento da equipe do cliente e suporte pós-obra com visitas programadas.",
   },
 ];
 
 export type Sector = {
-  id: "corporativo" | "industrial" | "saude" | "restaurantes";
+  id: "residencial" | "industrial" | "saude" | "restaurantes";
   name: string;
   caption: string;
   description: string;
@@ -204,10 +197,10 @@ export type Sector = {
 
 export const sectors: Sector[] = [
   {
-    id: "corporativo",
-    name: "Corporativo",
-    caption: "Escritórios e sedes",
-    description: "Lajes corporativas, retrofit de sedes e salas técnicas em prédios em operação.",
+    id: "residencial",
+    name: "Residencial",
+    caption: "Casas e edifícios",
+    description: "Residências de alto padrão, edifícios e reformas completas, da estrutura ao acabamento.",
   },
   {
     id: "industrial",

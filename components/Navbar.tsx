@@ -206,13 +206,10 @@ export default function Navbar() {
                         >
                           <button
                             onClick={() => goTo(`#${service.id}`)}
-                            className="group flex w-full flex-col items-start rounded-lg px-3 py-2.5 text-left transition-colors duration-300 hover:bg-bone/[0.04]"
+                            className="group flex w-full items-center rounded-lg px-3 py-2 text-left transition-colors duration-300 hover:bg-bone/[0.04]"
                           >
                             <span className="text-[15px] font-medium text-bone transition-colors duration-300 group-hover:text-accent-soft">
                               {service.title}
-                            </span>
-                            <span className="mt-0.5 text-xs text-smoke">
-                              {service.short}
                             </span>
                           </button>
                         </motion.li>

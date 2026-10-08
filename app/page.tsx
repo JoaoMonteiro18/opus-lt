@@ -6,7 +6,6 @@ import Works from "@/components/Works";
 import Pillars from "@/components/Pillars";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
-import Process from "@/components/Process";
 import Marquee from "@/components/Marquee";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -24,7 +23,6 @@ export default function Home() {
         <Pillars />
         <Services />
         <Projects />
-        <Process />
         <Marquee />
         <Contact />
       </main>
