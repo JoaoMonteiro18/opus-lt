@@ -147,15 +147,15 @@ function Strip() {
 
 export default function Works() {
   return (
-    <section id="obras" className="relative scroll-mt-24 py-24 md:py-32">
+    <section id="atuacao" className="relative scroll-mt-24 py-24 md:py-32">
       <div className="container-x">
         <div className="flex flex-wrap items-end justify-between gap-8">
           <SectionHeading
-            kicker="Obras"
+            kicker="Atuação"
             lines={[
-              "Onde a Opus LT",
+              "Onde a Opus",
               <span key="p">
-                já <em className="font-accent italic text-bone">construiu</em>.
+                <em className="font-accent italic text-bone">atua</em>.
               </span>,
             ]}
           />
@@ -164,7 +164,7 @@ export default function Works() {
               href="#contato"
               className="link-underline text-sm font-medium uppercase tracking-[0.2em] text-bone/70 hover:text-bone"
             >
-              Solicitar portfólio
+              Falar sobre um projeto
             </a>
           </FadeIn>
         </div>

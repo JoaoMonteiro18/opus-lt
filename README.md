@@ -52,8 +52,8 @@ lib/
   content.ts        # serviços, pilares, números, processo, setores
 components/
   Navbar.tsx        # navbar inteligente + mega-menu de serviços
-  Hero.tsx  About.tsx  Pillars.tsx  Services.tsx
-  Works.tsx  Process.tsx  Credibility.tsx  Contact.tsx  Footer.tsx
+  Hero.tsx  About.tsx  Works.tsx  Pillars.tsx  Services.tsx
+  Projects.tsx  Process.tsx  Marquee.tsx  Contact.tsx  Footer.tsx
   Logo.tsx  logo-path.ts  Preloader.tsx  Cursor.tsx
   SmoothScroll.tsx  SectionHeading.tsx  WhatsAppButton.tsx
   motion/primitives.tsx  # FadeIn, MaskLines, Magnetic, TiltCard
@@ -72,4 +72,4 @@ Os serviços ficam em `lib/content.ts`, divididos em dois grupos que alimentam a
 
 **Reais:** WhatsApp (11) 93026-1603 (Daniel Schmidt), atendimento em São Paulo, e todo o escopo técnico das instalações elétricas e de dados (herdado do site anterior). Setores atendidos: corporativo, industrial, saúde e restaurantes.
 
-**Placeholders a substituir:** e-mail `contato@opuslt.com.br`, domínio `opuslt.com.br`, os dados da seção Credibilidade (`HIGHLIGHTS` em `components/Credibility.tsx`) e as imagens — todas do Unsplash via `next/image`, centralizadas em `images` no `lib/site.ts`. O ideal é trocá-las por fotos reais de obras entregues.
+**Placeholders a substituir:** e-mail `contato@opuslt.com.br`, domínio `opuslt.com.br`, e sobretudo as obras da seção Obras (`projects` em `lib/content.ts` e `images.projects` em `lib/site.ts`) — hoje são nomes e fotos de exemplo, com status Entregue / Em obra / Em projeto. Todas as imagens vêm do Unsplash via `next/image`.

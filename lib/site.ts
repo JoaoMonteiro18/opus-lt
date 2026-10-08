@@ -34,4 +34,14 @@ export const images = {
     restaurantes:
       "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2400&auto=format&fit=crop",
   },
+  projects: {
+    verticeJardins:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2400&auto=format&fit=crop",
+    aureaFariaLima:
+      "https://images.unsplash.com/photo-1554469384-e58fac16e23a?q=80&w=1600&auto=format&fit=crop",
+    origemPinheiros:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600&auto=format&fit=crop",
+    miranteIbirapuera:
+      "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?q=80&w=2400&auto=format&fit=crop",
+  },
 } as const;

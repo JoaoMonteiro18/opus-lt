@@ -59,38 +59,20 @@ export const serviceGroups: ServiceGroup[] = [
     caption: "A engenharia que dá vida ao prédio",
     services: [
       {
-        id: "instalacoes-eletricas",
-        title: "Instalações Elétricas",
-        short: "Da entrada de energia ao último ponto",
+        id: "instalacoes-eletricas-e-dados",
+        title: "Instalações Elétricas e de Dados",
+        short: "Da entrada de energia ao último ponto de rede",
         description:
-          "Instalação, manutenção e modernização de sistemas elétricos em ambientes comerciais, industriais e corporativos. Projeto sob medida com laudo de conformidade.",
+          "Sistemas elétricos, redes estruturadas, data centers e redes sem fio corporativas em ambientes comerciais, industriais e corporativos — projetados, instalados e certificados pela mesma equipe, com laudo de conformidade.",
         tags: [
-          "Painéis elétricos",
-          "Quadros de distribuição",
+          "Painéis e quadros",
           "SPDA / Para-raios",
-          "Manutenção preventiva",
-        ],
-      },
-      {
-        id: "infraestrutura-de-dados",
-        title: "Infraestrutura de Dados",
-        short: "Redes estruturadas e data centers",
-        description:
-          "Projetos e instalação de redes estruturadas, data centers e salas de telecomunicações com certificação e padrão internacional de qualidade.",
-        tags: [
           "Cabeamento Cat6 / Cat6A",
           "Fibra óptica",
-          "Rack e patch panel",
           "Certificação de rede",
+          "Wi-Fi corporativo",
+          "CFTV e controle de acesso",
         ],
-      },
-      {
-        id: "redes-seguranca",
-        title: "Redes Wi-Fi e CFTV",
-        short: "Conectividade e segurança integradas",
-        description:
-          "Redes sem fio corporativas de alta performance, câmeras IP, controle de acesso e monitoramento remoto — tudo integrado à mesma infraestrutura.",
-        tags: ["Access points", "Site survey", "Câmeras IP", "Controle de acesso"],
       },
       {
         id: "manutencao-preventiva",
@@ -105,6 +87,54 @@ export const serviceGroups: ServiceGroup[] = [
 ];
 
 export const allServices: Service[] = serviceGroups.flatMap((g) => g.services);
+
+export type ProjectStatus = "Entregue" | "Em obra" | "Em projeto";
+
+export type Project = {
+  id: "verticeJardins" | "aureaFariaLima" | "origemPinheiros" | "miranteIbirapuera";
+  name: string;
+  segment: string;
+  location: string;
+  status: ProjectStatus;
+  /** Ocupa duas colunas no grid. */
+  wide: boolean;
+};
+
+/* Exemplos provisórios — substituir por obras reais da Opus. */
+export const projects: Project[] = [
+  {
+    id: "verticeJardins",
+    name: "Vértice Jardins",
+    segment: "Residencial",
+    location: "Jardim Europa · São Paulo",
+    status: "Em obra",
+    wide: true,
+  },
+  {
+    id: "aureaFariaLima",
+    name: "Áurea Faria Lima",
+    segment: "Corporativo",
+    location: "Itaim Bibi · São Paulo",
+    status: "Entregue",
+    wide: false,
+  },
+  {
+    id: "origemPinheiros",
+    name: "Origem Alto de Pinheiros",
+    segment: "Residencial",
+    location: "Alto de Pinheiros · São Paulo",
+    status: "Entregue",
+    wide: false,
+  },
+  {
+    id: "miranteIbirapuera",
+    name: "Mirante Ibirapuera",
+    segment: "Residencial",
+    location: "Vila Nova Conceição · São Paulo",
+    status: "Em projeto",
+    wide: true,
+  },
+];
 
 export type Pillar = {
   title: string;

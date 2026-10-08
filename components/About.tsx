@@ -53,10 +53,9 @@ export default function About() {
 
           <FadeIn delay={0.3} x={-32} y={0} className="mt-10 space-y-6">
             <p className="max-w-lg leading-relaxed text-smoke">
-              A Opus LT nasceu nas instalações elétricas e na infraestrutura de
-              dados — a parte da obra em que não existe margem para improviso.
-              Esse rigor nos levou adiante: hoje executamos e gerenciamos a obra
-              inteira, da estrutura ao comissionamento.
+              A Opus executa e gerencia a obra inteira, da estrutura ao
+              comissionamento — incluindo as instalações elétricas e de dados,
+              a parte em que não existe margem para improviso.
             </p>
             <p className="max-w-lg leading-relaxed text-smoke">
               O cliente deixa de coordenar construtora, elétrica e rede

@@ -8,10 +8,10 @@ import { serviceGroups } from "@/lib/content";
 
 const LINKS = [
   { label: "Sobre", href: "#sobre" },
+  { label: "Atuação", href: "#atuacao" },
   { label: "Serviços", href: "#servicos", mega: true },
   { label: "Obras", href: "#obras" },
   { label: "Processo", href: "#processo" },
-  { label: "Credibilidade", href: "#credibilidade" },
   { label: "Contato", href: "#contato" },
 ];
 

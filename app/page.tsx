@@ -2,11 +2,12 @@ import Preloader from "@/components/Preloader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Works from "@/components/Works";
 import Pillars from "@/components/Pillars";
 import Services from "@/components/Services";
-import Works from "@/components/Works";
+import Projects from "@/components/Projects";
 import Process from "@/components/Process";
-import Credibility from "@/components/Credibility";
+import Marquee from "@/components/Marquee";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -19,11 +20,12 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <Works />
         <Pillars />
         <Services />
-        <Works />
+        <Projects />
         <Process />
-        <Credibility />
+        <Marquee />
         <Contact />
       </main>
       <Footer />
