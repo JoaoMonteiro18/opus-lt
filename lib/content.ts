@@ -130,7 +130,7 @@ export const projects: Project[] = [
     id: "lilu",
     name: "Lilu",
     segment: "Restaurante",
-    location: "Rua Amauri · São Paulo",
+    location: "Rua Amauri, Itaim Bibi · São Paulo",
     status: "Em andamento",
     wide: true,
   },
