@@ -25,7 +25,7 @@ export default function Preloader() {
     <AnimatePresence>
       {!done && (
         <motion.div
-          className="fixed inset-0 z-[95] flex items-center justify-center bg-ink"
+          className="fixed inset-0 z-[95] flex flex-col items-center justify-center gap-10 bg-ink"
           exit={{ y: "-100%" }}
           transition={{ duration: 0.9, ease: EASE }}
           aria-hidden="true"
@@ -58,7 +58,7 @@ export default function Preloader() {
           </svg>
 
           <motion.div
-            className="absolute bottom-16 left-1/2 h-px w-40 -translate-x-1/2 overflow-hidden bg-bone/10"
+            className="h-px w-40 overflow-hidden bg-bone/10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

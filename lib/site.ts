@@ -12,13 +12,15 @@ export const contact = {
   whatsappNumber: "5511930261603",
   contactName: "Daniel Schmidt",
   email: "contato@opuslt.com.br",
-  location: "São Paulo — SP",
+  location: "Av. Nove de Julho · São Paulo — SP",
 } as const;
 
 export function whatsappLink(message?: string): string {
   const base = `https://wa.me/${contact.whatsappNumber}`;
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
+
+export const mapQuery = "Av. Nove de Julho, São Paulo, SP";
 
 export const images = {
   hero: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2400&auto=format&fit=crop",

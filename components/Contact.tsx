@@ -3,7 +3,7 @@
 import { useState } from "react";
 import SectionHeading from "@/components/SectionHeading";
 import { FadeIn, Magnetic } from "@/components/motion/primitives";
-import { contact, whatsappLink } from "@/lib/site";
+import { contact, mapQuery, whatsappLink } from "@/lib/site";
 
 const INFO = [
   {
@@ -32,8 +32,8 @@ function MapPanel() {
   if (loaded) {
     return (
       <iframe
-        title="Mapa — área de atendimento da Opus LT Engenharia, São Paulo"
-        src="https://maps.google.com/maps?q=S%C3%A3o%20Paulo%2C%20SP&z=10&output=embed"
+        title={`Mapa — ${contact.location}`}
+        src={`https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&output=embed`}
         className="absolute inset-0 h-full w-full border-0 grayscale invert-[0.92] contrast-[0.88] sepia-[0.15]"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
@@ -59,10 +59,10 @@ function MapPanel() {
         </span>
         <div>
           <p className="font-display text-lg font-semibold text-bone">
-            São Paulo e Grande SP
+            Av. Nove de Julho
           </p>
           <p className="mt-1 text-sm text-smoke">
-            Obras atendidas em todo o estado
+            São Paulo — SP
           </p>
         </div>
         <button onClick={() => setLoaded(true)} className="btn btn-ghost !px-6 !py-3">

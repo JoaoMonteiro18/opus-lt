@@ -70,6 +70,7 @@ const organizationSchema = {
   areaServed: "Brasil",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Av. Nove de Julho",
     addressLocality: "São Paulo",
     addressRegion: "SP",
     addressCountry: "BR",
