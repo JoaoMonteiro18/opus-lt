@@ -14,7 +14,7 @@ export default function Preloader() {
     const t = setTimeout(() => {
       setDone(true);
       document.documentElement.style.overflow = "";
-    }, 1900);
+    }, 2400);
     return () => {
       clearTimeout(t);
       document.documentElement.style.overflow = "";
@@ -41,7 +41,7 @@ export default function Preloader() {
               initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0 }}
               animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
+              transition={{ duration: 1.45, ease: [0.45, 0, 0.25, 1], delay: 0.15 }}
             >
               <OpusPart />
             </motion.g>
@@ -51,7 +51,7 @@ export default function Preloader() {
               initial={{ opacity: 0, x: 48 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.7, ease: EASE, delay: 0.95 }}
+              transition={{ duration: 0.8, ease: EASE, delay: 1.5 }}
             >
               <LtPart />
             </motion.g>
@@ -67,7 +67,7 @@ export default function Preloader() {
               className="h-full bg-accent-soft"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ duration: 1.7, ease: "easeInOut" }}
+              transition={{ duration: 2.2, ease: "easeInOut" }}
               style={{ transformOrigin: "left" }}
             />
           </motion.div>

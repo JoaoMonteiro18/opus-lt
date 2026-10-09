@@ -88,10 +88,10 @@ export const serviceGroups: ServiceGroup[] = [
 
 export const allServices: Service[] = serviceGroups.flatMap((g) => g.services);
 
-export type ProjectStatus = "Entregue" | "Em obra" | "Em projeto";
+export type ProjectStatus = "Entregue" | "Em andamento" | "Em projeto";
 
 export type Project = {
-  id: "verticeJardins" | "aureaFariaLima" | "origemPinheiros" | "casaOliva";
+  id: "verticeJardins" | "aureaFariaLima" | "origemPinheiros" | "lilu";
   name: string;
   segment: string;
   location: string;
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     name: "Vértice Jardins",
     segment: "Residencial",
     location: "Jardim Europa · São Paulo",
-    status: "Em obra",
+    status: "Em andamento",
     wide: true,
   },
   {
@@ -127,32 +127,12 @@ export const projects: Project[] = [
     wide: false,
   },
   {
-    id: "casaOliva",
-    name: "Casa Oliva",
+    id: "lilu",
+    name: "Lilu",
     segment: "Restaurante",
-    location: "Vila Nova Conceição · São Paulo",
-    status: "Em obra",
+    location: "Rua Amauri · São Paulo",
+    status: "Em andamento",
     wide: true,
-  },
-];
-
-export type Pillar = {
-  title: string;
-  text: string;
-};
-
-export const pillars: Pillar[] = [
-  {
-    title: "Engenharia integrada",
-    text: "Obra civil e instalações elétricas e de dados sob a mesma responsabilidade técnica. Uma interlocutora só, do projeto à energização.",
-  },
-  {
-    title: "Conformidade sem atalho",
-    text: "ABNT NBR 5410, NBR 14565, NR-10 e NR-35. Material certificado pelo INMETRO e documentação técnica completa ao final de cada entrega.",
-  },
-  {
-    title: "Prazo que se cumpre",
-    text: "Cronograma físico-financeiro realista desde a proposta, com medição por etapa e relatório de avanço — sem surpresa no meio da obra.",
   },
 ];
 

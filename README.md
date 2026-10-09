@@ -52,7 +52,7 @@ lib/
   content.ts        # serviços, pilares, números, processo, setores
 components/
   Navbar.tsx        # navbar inteligente + mega-menu de serviços
-  Hero.tsx  About.tsx  Works.tsx  Pillars.tsx  Services.tsx
+  Hero.tsx  About.tsx  Works.tsx  Services.tsx
   Projects.tsx  Marquee.tsx  Contact.tsx  Footer.tsx
   Logo.tsx  logo-path.ts  Preloader.tsx  Cursor.tsx
   SmoothScroll.tsx  SectionHeading.tsx  WhatsAppButton.tsx

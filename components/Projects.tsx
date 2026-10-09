@@ -10,7 +10,7 @@ import { images } from "@/lib/site";
 /** Entregue ganha o verde da marca; as demais ficam neutras. */
 const STATUS_STYLE: Record<ProjectStatus, string> = {
   Entregue: "border-accent-soft/60 bg-accent/70 text-bone",
-  "Em obra": "border-bone/35 bg-ink/50 text-bone",
+  "Em andamento": "border-bone/35 bg-ink/50 text-bone",
   "Em projeto": "border-bone/20 bg-ink/50 text-bone/70",
 };
 

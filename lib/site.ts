@@ -26,7 +26,7 @@ export const images = {
     "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1800&auto=format&fit=crop",
   works: {
     residencial:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2400&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2400&auto=format&fit=crop",
     industrial:
       "https://images.unsplash.com/photo-1565610222536-ef125c59da2e?q=80&w=1600&auto=format&fit=crop",
     saude:
@@ -41,7 +41,6 @@ export const images = {
       "https://images.unsplash.com/photo-1554469384-e58fac16e23a?q=80&w=1600&auto=format&fit=crop",
     origemPinheiros:
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600&auto=format&fit=crop",
-    casaOliva:
-      "https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=2400&auto=format&fit=crop",
+    lilu: "/obras/lilu.jpg",
   },
 } as const;

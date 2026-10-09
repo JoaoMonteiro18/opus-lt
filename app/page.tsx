@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Works from "@/components/Works";
-import Pillars from "@/components/Pillars";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Marquee from "@/components/Marquee";
@@ -20,7 +19,6 @@ export default function Home() {
         <Hero />
         <About />
         <Works />
-        <Pillars />
         <Services />
         <Projects />
         <Marquee />
