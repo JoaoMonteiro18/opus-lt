@@ -44,7 +44,7 @@ function MapPanel() {
 
   return (
     <div className="blueprint-grid absolute inset-0 flex flex-col items-center justify-center gap-8">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(147,174,143,0.1),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(201,160,140,0.1),transparent_70%)]" />
       <div className="relative flex flex-col items-center gap-5 text-center">
         <span className="relative flex size-14 items-center justify-center">
           <span className="absolute inset-0 animate-ping rounded-full bg-accent-soft/15" />

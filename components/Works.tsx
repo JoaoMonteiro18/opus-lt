@@ -69,7 +69,7 @@ function Panels() {
                 className="pointer-events-none absolute inset-0 border transition-colors duration-700"
                 style={{
                   borderColor: isActive
-                    ? "rgba(147,174,143,0.45)"
+                    ? "rgba(201,160,140,0.45)"
                     : "rgba(242,240,236,0.1)",
                 }}
               />

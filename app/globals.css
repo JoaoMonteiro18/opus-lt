@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 /* ───────────────────────────────────────────────────────────────
-   PALETA — identidade em transição.
+   PALETA — terracota suave.
 
-   --color-accent é o verde oliva da marca (#374335). Ele é escuro
-   demais para texto sobre o fundo quase-preto (contraste 1,9:1),
-   então vale só para preenchimentos sólidos: botão primário,
-   ícone do WhatsApp, superfícies.
+   --color-accent é a argila da marca (#7A4A3A). Como todo tom cheio
+   sobre fundo quase-preto, ele não tem contraste para texto: vale só
+   para preenchimentos sólidos (botão primário, ícone do WhatsApp,
+   selo "Entregue").
 
-   --color-accent-soft é o MESMO verde clareado (mesma matiz, 111°),
-   com 8:1 de contraste. É ele que aparece em kicker, filetes,
-   bordas, números e hover — tudo que é texto ou traço fino.
+   --color-accent-soft é a MESMA matiz clareada (16°), com 8:1 de
+   contraste. É ela que aparece em kicker, filetes, bordas, números e
+   hover — tudo que é texto ou traço fino.
 
-   Para trocar o verde da marca, altere os dois mantendo a matiz.
+   Para trocar o acento, altere os dois mantendo a matiz, e acerte
+   junto os rgba() de Cursor.tsx, Hero.tsx, Contact.tsx e Works.tsx.
    ─────────────────────────────────────────────────────────────── */
 @theme {
   --color-ink: #0a0b0c;
@@ -21,9 +22,9 @@
   --color-steel: #343940;
   --color-smoke: #8a9097;
   --color-bone: #f2f0ec;
-  --color-accent: #374335;
-  --color-accent-soft: #93ae8f;
-  --color-accent-deep: #222a21;
+  --color-accent: #7a4a3a;
+  --color-accent-soft: #c9a08c;
+  --color-accent-deep: #241b16;
   --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-accent: var(--font-instrument), ui-serif, Georgia, serif;
@@ -113,7 +114,7 @@ html.cursor-on textarea {
 .accent-glow {
   background: radial-gradient(
     ellipse 60% 45% at 50% 0%,
-    rgba(147, 174, 143, 0.06),
+    rgba(201, 160, 140, 0.06),
     transparent 70%
   );
 }

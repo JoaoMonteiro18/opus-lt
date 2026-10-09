@@ -28,7 +28,7 @@ npm start        # serve o build
 
 A marca está sendo redesenhada. Tudo foi tokenizado para a troca ser barata:
 
-**Paleta** — `app/globals.css`, bloco `@theme`. O verde da marca é `--color-accent` (#374335). Como ele é escuro demais para texto sobre o fundo quase-preto (contraste 1,9:1), vale só para preenchimentos sólidos — botão primário, ícone do WhatsApp. Textos finos, filetes, bordas e hover usam `--color-accent-soft` (#93AE8F), o mesmo verde clareado na mesma matiz (111°), com 8:1 de contraste. Para trocar o verde, altere os dois mantendo a matiz. Nenhum componente tem cor fixa no código.
+**Paleta** — `app/globals.css`, bloco `@theme`. A terracota da marca é `--color-accent` (#7A4A3A). Como todo tom cheio sobre o fundo quase-preto, ele não tem contraste para texto: vale só para preenchimentos sólidos — botão primário, ícone do WhatsApp, selo "Entregue". Textos finos, filetes, bordas e hover usam `--color-accent-soft` (#C9A08C), a mesma matiz (16°) clareada, com 8:1 de contraste. Para trocar o acento, altere os dois mantendo a matiz **e** os `rgba()` em `Cursor.tsx`, `Hero.tsx`, `Contact.tsx` e `Works.tsx`, que são os únicos pontos com a cor escrita à mão.
 
 **Logo** — `components/Logo.tsx`. O wordmark é um SVG inline que herda a cor via `currentColor`, então ele se adapta sozinho ao acento e ao fundo:
 

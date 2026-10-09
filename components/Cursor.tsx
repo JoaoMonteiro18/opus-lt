@@ -42,8 +42,8 @@ export default function Cursor() {
       );
       gsap.to(ring, {
         scale: target ? 2.1 : 1,
-        backgroundColor: target ? "rgba(147,174,143,0.12)" : "rgba(147,174,143,0)",
-        borderColor: target ? "rgba(147,174,143,0.9)" : "rgba(242,240,236,0.35)",
+        backgroundColor: target ? "rgba(201,160,140,0.12)" : "rgba(201,160,140,0)",
+        borderColor: target ? "rgba(201,160,140,0.9)" : "rgba(242,240,236,0.35)",
         duration: 0.4,
         ease: "power3.out",
       });

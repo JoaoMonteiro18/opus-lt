@@ -73,7 +73,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/35" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/45 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_110%,rgba(13,18,23,0.92),transparent)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_20%,rgba(147,174,143,0.16),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_75%_20%,rgba(201,160,140,0.16),transparent_70%)]" />
       </div>
 
       <Wordmark className="pointer-events-none absolute right-10 top-1/2 hidden w-[46vw] max-w-[52rem] -translate-y-1/2 text-bone opacity-[0.05] lg:block" />
