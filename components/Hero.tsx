@@ -2,11 +2,10 @@
 
 import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Wordmark } from "@/components/Logo";
-import { EASE, FadeIn, Magnetic, MaskLines } from "@/components/motion/primitives";
+import { FadeIn, Magnetic, MaskLines } from "@/components/motion/primitives";
 import { images } from "@/lib/site";
 
 export default function Hero() {
@@ -132,25 +131,6 @@ export default function Hero() {
           </Magnetic>
         </FadeIn>
       </div>
-
-      <motion.div
-        className="absolute bottom-10 right-6 z-10 hidden flex-col items-center gap-4 md:flex lg:right-16"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 3.6, duration: 1, ease: EASE }}
-        aria-hidden="true"
-      >
-        <span className="text-[10px] uppercase tracking-[0.4em] text-bone/40 [writing-mode:vertical-rl]">
-          Scroll
-        </span>
-        <div className="relative h-20 w-px overflow-hidden bg-bone/15">
-          <motion.span
-            className="absolute left-0 top-0 h-8 w-px bg-accent-soft"
-            animate={{ y: [-32, 80] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
-      </motion.div>
     </section>
   );
 }
