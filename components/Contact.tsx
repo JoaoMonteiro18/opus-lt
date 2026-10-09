@@ -155,10 +155,6 @@ export default function Contact() {
               <MapPanel />
               <div className="pointer-events-none absolute inset-0 border border-accent-soft/15" />
             </div>
-            <p className="mt-5 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-smoke">
-              <span className="h-px w-6 bg-accent-soft/60" />
-              Visita técnica sem compromisso
-            </p>
           </FadeIn>
         </div>
       </div>

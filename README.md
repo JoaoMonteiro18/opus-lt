@@ -32,10 +32,10 @@ A marca está sendo redesenhada. Tudo foi tokenizado para a troca ser barata:
 
 **Logo** — `components/Logo.tsx`. O wordmark é um SVG inline que herda a cor via `currentColor`, então ele se adapta sozinho ao acento e ao fundo:
 
-- `<Wordmark />` — só a marca, usada também como marca-d'água gigante no hero e no rodapé.
+- `<Wordmark />` — a marca inteira; `<OpusPart />` e `<LtPart />` são as duas metades, que o preloader anima em tempos diferentes.
 - `<Logo />` — o lockup "opus | ENGENHARIA" do cabeçalho.
 
-O path vem de `components/logo-path.ts` (gerado a partir do SVG original). Para trocar a logo, substitua o `d` desse arquivo e o `viewBox`, mais `public/logo.svg` e `app/icon.svg` (favicon).
+Os paths vêm de `components/logo-path.ts`, gerado a partir de `public/logo.svg` e já separado em `OPUS_PATH` e `LT_PATHS`. Para trocar a logo, regenere esse arquivo a partir do SVG novo e atualize `app/icon.svg` (favicon).
 
 **Nome** — o wordmark novo traz só "opus". Os textos do site ainda dizem "Opus LT" (nome atual da empresa). Se a marca passar a ser apenas "Opus", é um find-replace em `lib/site.ts`, `lib/content.ts` e nos componentes.
 

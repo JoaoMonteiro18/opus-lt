@@ -80,7 +80,7 @@ export default function Hero() {
       <Wordmark className="pointer-events-none absolute right-10 top-1/2 hidden w-[46vw] max-w-[52rem] -translate-y-1/2 text-bone opacity-[0.05] lg:block" />
 
       <div ref={contentRef} className="container-x relative z-10 pb-24 pt-40 md:pb-28">
-        <FadeIn y={12} blur={false} delay={1.35} mode="mount">
+        <FadeIn y={12} blur={false} delay={1.8} mode="mount">
           <span className="kicker">
             Construção civil · Gerenciamento de obras · Instalações
           </span>
@@ -89,7 +89,7 @@ export default function Hero() {
         <h1 className="mt-6 max-w-6xl">
           <MaskLines
             mode="mount"
-            delay={1.45}
+            delay={1.9}
             lines={[
               <span key="l1" className="font-display font-semibold">
                 Da fundação
@@ -106,7 +106,7 @@ export default function Hero() {
           />
         </h1>
 
-        <FadeIn delay={1.95} y={24} mode="mount" className="mt-8 max-w-xl">
+        <FadeIn delay={2.4} y={24} mode="mount" className="mt-8 max-w-xl">
           <p className="text-base leading-relaxed text-bone/65 md:text-lg">
             Construtora e gerenciadora de obras com engenharia de instalações
             elétricas e de dados própria. Uma única responsável técnica, do
@@ -115,7 +115,7 @@ export default function Hero() {
         </FadeIn>
 
         <FadeIn
-          delay={2.15}
+          delay={2.6}
           y={24}
           mode="mount"
           className="mt-9 flex flex-wrap items-center gap-4"
@@ -137,7 +137,7 @@ export default function Hero() {
         className="absolute bottom-10 right-6 z-10 hidden flex-col items-center gap-4 md:flex lg:right-16"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.7, duration: 1, ease: EASE }}
+        transition={{ delay: 3.1, duration: 1, ease: EASE }}
         aria-hidden="true"
       >
         <span className="text-[10px] uppercase tracking-[0.4em] text-bone/40 [writing-mode:vertical-rl]">

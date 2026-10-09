@@ -93,10 +93,6 @@ export default function About() {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
             </div>
-            <p className="mt-5 flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-smoke">
-              <span className="h-px w-6 bg-accent-soft/60" />
-              Do projeto executivo à obra
-            </p>
           </FadeIn>
         </div>
       </div>

@@ -223,18 +223,6 @@ export const sectors: Sector[] = [
   },
 ];
 
-/** Faixa contínua da seção Credibilidade. Frases curtas, não nomes de fabricante. */
-export const marqueeItems: string[] = [
-  "Equipe própria",
-  "ART emitida por obra",
-  "NR-10 e NR-35 em dia",
-  "Material certificado INMETRO",
-  "Obra em operação, sem parar a casa",
-  "Medição por etapa concluída",
-  "Planta atualizada e laudo técnico",
-  "Suporte pós-obra",
-];
-
 export const aboutChecklist: string[] = [
   "Obra civil e instalações sob uma única responsabilidade técnica",
   "Equipe própria — sem terceirizar o que define a qualidade da entrega",
